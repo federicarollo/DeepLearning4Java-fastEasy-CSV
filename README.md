@@ -1,4 +1,4 @@
-Deeplearning4J Examples 
+DL4J Release 0.4 Examples 
 =========================
 Repository of Deeplearning4J neural net examples:
 
@@ -23,6 +23,18 @@ Run the `runexamples.sh` script to run the examples (requires [bash](https://www
 
 ```
 ./runexamples.sh [-h | --help]
+
+if error: ... $'\r': command not found
+run: sed -i 's/\r$//' <file>
+
+Test a single example:
+java -cp dl4j-examples/target/dl4j-examples-0.4-rc0-SNAPSHOT-bin.jar "org.deeplearning4j.examples.feedforward.xor.XorExample"
+
+or 
+java -cp dl4j-examples/target/dl4j-examples-0.4-rc0-SNAPSHOT-bin.jar "org.deeplearning4j.examples.convolution.LenetMnistExample"
+
+or
+java -cp dl4j-examples/target/dl4j-examples-0.4-rc0-SNAPSHOT-bin.jar "org.deeplearning4j.examples.dataExamples.CSVExample"
 ```
 
 

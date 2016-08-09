@@ -20,8 +20,8 @@ import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization;
 import org.nd4j.linalg.dataset.api.preprocessor.NormalizerStandardize;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import java.io.File;
 /**
@@ -30,22 +30,16 @@ import java.io.File;
  */
 public class CSVExample {
 
-    private static Logger log = LoggerFactory.getLogger(CSVExample.class);
+    //private static Logger log = LoggerFactory.getLogger(CSVExample.class);
 
     public static void main(String[] args) throws  Exception {
-
-		System.out.println();
 
 		// try other loading than RecordReader... (from word2vecrawtextexample.java)
 		String filePath = "C:/Users/Jason /lbalah/Desktop/Java/dl4j-0.4-examples/dl4j-examples/src/main/resources";//new ClassPathResource("raw_sentences.txt").getFile().getAbsolutePath();
 
+		
         //First: get the dataset using the record reader. CSVRecordReader handles loading/parsing
-        //String filename = "SandPFormatAllRand.csv";
-		if(args.length < 6) {
-			System.out.println("Incorrect command line arguments: filename numClassesInLastCol numCols numRowsOrBatchSize learningRate iterations");
-			System.out.println("Eg.: XOR.csv 2 6 250 .1 100000");
-		}
-		String filename = args[0];
+        String filename = "SandPFormat.csv";
 		boolean iris = false; // test dataset
 		if(filename == "iris.csv") iris = true;
 		int numLinesToSkip = 0;
@@ -55,24 +49,15 @@ public class CSVExample {
 		//recordReader.initialize(new FileSplit(new ClassPathResource("iris.txt").getFile())); // FileNotFound exception
 
         //Second: the RecordReaderDataSetIterator handles conversion to DataSet objects, ready for use in neural network
-		int labelIndex = Integer.parseInt(args[2]) - 1;
-		int numClasses = Integer.parseInt(args[1]);
-		int batchSize = Integer.parseInt(args[3]);
+		int labelIndex = 6;
+		int numClasses = 2;
+		int batchSize = 251;
 		if(iris){
 			labelIndex = 4;     //5 values in each row of the iris.txt CSV: 4 input features followed by an integer label (class) index. Labels are the 5th value (index 4) in each row
 			numClasses = 3;     //3 classes (types of iris flowers) in the iris data set. Classes have integer values 0, 1 or 2
 			batchSize = 150;    //Iris data set: 150 examples total. We are loading all of them into one DataSet (not recommended for large data sets)
 		}
-        DataSetIterator iterator = new RecordReaderDataSetIterator(recordReader,batchSize,labelIndex,numClasses);	
-		int numInputs = labelIndex;
-		int outputNum = numClasses;
-		if(iris){ 
-			numInputs = 4;
-			outputNum = 3;
-		}
-        int iterations = Integer.parseInt(args[5]);
-		float LR = Float.parseFloat(args[4]);
-        long seed = 6;	
+        DataSetIterator iterator = new RecordReaderDataSetIterator(recordReader,batchSize,labelIndex,numClasses);		
 		
 		DataSet allData = iterator.next();
         allData.shuffle();
@@ -87,13 +72,23 @@ public class CSVExample {
         normalizer.transform(trainingData);     //Apply normalization to the training data
         normalizer.transform(testData);         //Apply normalization to the test data. This is using statistics calculated from the *training* set
 
+
+        final int numInputs = 6;
+		int outputNum = 2;
+		if(iris){ 
+			numInputs = 4;
+			outputNum = 3;
+		}
+        int iterations = 1000;
+        long seed = 6;
+
         log.info("Build model....");
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
             .seed(seed)
             .iterations(iterations)
             .activation("tanh")
             .weightInit(WeightInit.XAVIER)
-            .learningRate(LR)
+            .learningRate(0.1)
             .regularization(true).l2(1e-4)
             .list()
             .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(3)
@@ -122,3 +117,4 @@ public class CSVExample {
     }
 
 }
+

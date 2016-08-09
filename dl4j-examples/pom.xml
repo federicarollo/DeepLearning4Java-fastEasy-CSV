@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.deeplearning4j</groupId>
         <artifactId>deeplearning4j-examples-parent</artifactId>
-        <version>0.5-SNAPSHOT</version>
+        <version>0.4-rc0-SNAPSHOT</version>
     </parent>
 
     <name>DeepLearning4j Examples</name>
@@ -46,11 +46,11 @@
                 <artifactId>nd4j-native-platform</artifactId>
                 <version>${nd4j.version}</version>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.nd4j</groupId>
                 <artifactId>nd4j-cuda-7.5-platform</artifactId>
                 <version>${nd4j.version}</version>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -68,46 +68,46 @@
             <version>${dl4j.version}</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-nlp</artifactId>
             <version>${dl4j.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- deeplearning4j-ui is used for HistogramIterationListener + visualization: see http://deeplearning4j.org/visualization -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-ui</artifactId>
             <version>${dl4j.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- Force guava versions for using UI/HistogramIterationListener -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- datavec-data-codec: used only in video example for loading video data -->
-        <dependency>
+        <!--<dependency>
             <artifactId>datavec-data-codec</artifactId>
             <groupId>org.datavec</groupId>
             <version>${datavec.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- Used in the feedforward/classification/MLP* and feedforward/regression/RegressionMathFunctions example -->
-        <dependency>
+        <!--<dependency>
             <groupId>jfree</groupId>
             <artifactId>jfreechart</artifactId>
             <version>${jfreechart.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- Arbiter: used for hyperparameter optimization examples -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>arbiter-deeplearning4j</artifactId>
             <version>${arbiter.version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
@@ -177,6 +177,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+      </build>
 
 </project>

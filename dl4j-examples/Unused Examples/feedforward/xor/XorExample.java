@@ -175,6 +175,11 @@ public class XorExample {
 		// create output for every training sample
 		INDArray output = net.output(ds.getFeatureMatrix());
 		System.out.println(output);
+		System.out.println("input="+input);
+		System.out.println("labels="+labels);
+		System.out.println("layer0="+layers[0]);
+		System.out.println("layer1="+layers[1]);
+		System.out.println("layer2="+layers[2]);
 
 		// let Evaluation prints stats how often the right output had the
 		// highest value
