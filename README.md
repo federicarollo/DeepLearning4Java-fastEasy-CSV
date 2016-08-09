@@ -16,8 +16,8 @@ Use [Maven](https://maven.apache.org/) to build the examples.
 
 Note: must rebuild when adding new data files or modifying [CSVExample.java](https://github.com/jsa41394/DeepLearning4Java-CSV-Data-Eg/blob/master/dl4j-examples/src/main/java/org/deeplearning4j/examples/dataExamples/CSVExample.java)
 
-### Test XOR example (learned perfectly: accuracy == 1):
- 
+Test XOR example (learned perfectly: accuracy == 1):
+![](https://github.com/jsa41394/DeepLearning4Java-CSV-Data-Eg/tree/master/dl4j-examples/src/main/resources/XOR-example.png)
 
 ## Original Documentation (DeepLearning4Java)
 For more information, check out [deeplearning4j.org](http://deeplearning4j.org/) and its [JavaDoc](http://deeplearning4j.org/doc/).
