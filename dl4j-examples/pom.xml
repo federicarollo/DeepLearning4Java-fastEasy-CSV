@@ -96,11 +96,11 @@
         </dependency>-->
 
         <!-- Used in the feedforward/classification/MLP* and feedforward/regression/RegressionMathFunctions example -->
-        <!--<dependency>
+        <dependency>
             <groupId>jfree</groupId>
             <artifactId>jfreechart</artifactId>
             <version>${jfreechart.version}</version>
-        </dependency>-->
+        </dependency>
 
         <!-- Arbiter: used for hyperparameter optimization examples -->
         <!--<dependency>
@@ -108,6 +108,12 @@
             <artifactId>arbiter-deeplearning4j</artifactId>
             <version>${arbiter.version}</version>
         </dependency>-->
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aop</artifactId>
+        <version>${org.springframework.version}</version>
+      </dependency>
     </dependencies>
 
     <build>

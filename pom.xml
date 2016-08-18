@@ -24,17 +24,16 @@
         <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
         <!--<datavec.version>0.5.0</datavec.version>
         <arbiter.version>0.5.0</arbiter.version>
-        <guava.version>19.0</guava.version>
-        <jfreechart.version>1.0.13</jfreechart.version>-->
+        <guava.version>19.0</guava.version>-->
+        <jfreechart.version>1.0.13</jfreechart.version>
+        <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
     </properties>
 
     <modules>
         <module>dl4j-examples</module>
-        
         <!--<module>dl4j-spark-examples</module>-->
         <!--<module>datavec-examples</module>-->
         <!--<module>dl4j-cuda-specific-examples</module>-->
-        
     </modules>
 
 </project>
